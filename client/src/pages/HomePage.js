@@ -74,7 +74,7 @@ const HomePage = () => {
       try {
         const user = JSON.parse(localStorage.getItem("user"));
         setLoading(true);
-        const res = await axios.post("/transactions/get-transaction", {
+        const res = await axios.post("https://expense-tracker-lqgn.onrender.com/api/v1/transactions/get-transaction", {
           userid: user._id,
           frequency,
           selectedDate,
@@ -93,7 +93,7 @@ const HomePage = () => {
   const handleDelete = async (record) => {
     try {
       setLoading(true);
-      await axios.post("/transactions/delete-transaction", {
+      await axios.post("https://expense-tracker-lqgn.onrender.com/api/v1/transactions/delete-transaction", {
         transacationId: record._id,
       });
       setLoading(false);
@@ -111,7 +111,7 @@ const HomePage = () => {
       const user = JSON.parse(localStorage.getItem("user"));
       setLoading(true);
       if (editable) {
-        await axios.post("/transactions/edit-transaction", {
+        await axios.post("https://expense-tracker-lqgn.onrender.com/api/v1/transactions/edit-transaction", {
           payload: {
             ...values,
             userId: user._id,
@@ -121,7 +121,7 @@ const HomePage = () => {
         setLoading(false);
         message.success("Transaction Updated Successfully");
       } else {
-        await axios.post("/transactions/add-transaction", {
+        await axios.post("https://expense-tracker-lqgn.onrender.com/api/v1/transactions/add-transaction", {
           ...values,
           userid: user._id,
         });
@@ -143,7 +143,7 @@ const HomePage = () => {
       const requestData = {
         userid: user._id,
       };
-      const response = await axios.post("/transactions/export-monthlyReport", requestData, {
+      const response = await axios.post("https://expense-tracker-lqgn.onrender.com/api/v1/transactions/export-monthlyReport", requestData, {
         responseType: "blob", 
       });
 
