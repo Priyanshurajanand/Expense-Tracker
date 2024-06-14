@@ -7,7 +7,8 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "build": "npm i"
+    
+    "build": "[my-framework] build --output public"
   },
   "keywords": [],
   "author": "Priyanshu",
