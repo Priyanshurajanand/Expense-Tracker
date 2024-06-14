@@ -13,6 +13,7 @@ const Register = () => {
     try {
       setLoading(true);
       await axios.post("https://expense-tracker-lqgn.onrender.com/api/v1/users/register", values);
+      // await axios.post("http://localhost:8080/api/v1/users/register", values);
       message.success("Registeration Successfull");
       setLoading(false);
       navigate("/login");
@@ -47,7 +48,7 @@ const Register = () => {
                 <Input type="password" required />
               </Form.Item>
               <div className="d-flex justify-content-between gap-5">
-                <Link to="/login">Not a user ? Click Here to login !</Link>
+                <Link to="/login">Already a user ? Click Here to login !</Link>
                 <button className="btn">Register</button>
               </div>
             </Form>
